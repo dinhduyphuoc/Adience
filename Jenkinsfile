@@ -9,9 +9,9 @@ pipeline {
         stage('Build') {
             steps {
                 // This step should not normally be used in your script. Consult the inline help for details.
-                withDockerRegistry(credentialsId: 'adience', url: 'https://index.docker.io/v1/') {
-                    sh label: '', script: 'docker build -t iphuoc0309/adience:latest .'
-                    sh label: '', script: 'docker push iphuoc0309/adience:latest'
+                withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') {
+                    sh 'docker build -t iphuoc0309/adience:latest .'
+                    sh 'docker push iphuoc0309/adience:latest'
                 }
             }
         }
